@@ -8,6 +8,7 @@ import com.example.demo.multi.service.MultiService;
 
 @Controller
 public class MultiController {
+	//定数サービスクラスの変更は移行無しMultiServiceの定義
 	private final MultiService multiService;
 
 	public MultiController(MultiService multiService) {
