@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>登録完了</title>
+</head>
+
+<body>
+	<ul>
+		<li th:each="animal:${animal}" style="list-style: none;">
+			<p th:text="No：+ ${animal.id}"></p>
+			<p th:text="英名：+ ${animal.name}"></p>
+			<p th:text="和名：+ ${animal.japaneseName}"></p>
+			<p th:text="鳴き声：+ ${animal.cry}"></p>
+		</li>
+	</ul>
+</body>
+
+</html>

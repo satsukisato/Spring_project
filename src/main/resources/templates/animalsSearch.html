@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>動物検索画面</title>
+</head>
+
+<body>
+	<h1>動物検索画面</h1>
+	<!--animalsDetailのエンドポイントにデータを送信-->
+	<form action="animalsDetail" method="get">
+		<select name="animalsSelect">
+			<!--each属性繰り返し処理、value属性idで返す、text属性で和名を選択肢として表示させる-->
+			<option th:each="animalList:${animalsList}" th:value="${animalList.id}"
+				th:text="${animalList.japaneseName}">
+			</option>
+		</select>
+		<button type="submit">検索</button>
+	</form>
+	<div th:text="${error}">
+		<p th:text="${error}"></p>
+	</div>
+</body>
+
+</html>
