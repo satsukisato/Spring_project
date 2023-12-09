@@ -18,7 +18,12 @@ public class CalculatorService {
 
 	}
 
-	public double divide(int number1, int number2) {
-			return (double) number1 / number2;
+	public int divide(int number1, int number2) {
+		if(number2 != 0) {
+			return number1 / number2;
+		}else {
+			throw new ArithmeticException();
+		}
+
 	}
 }

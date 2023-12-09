@@ -20,7 +20,6 @@ public class CalculatorController {
 	public String doGet() {
 		return "calculator.html";
 	}
-	
 
 	@PostMapping("calculator")
 	public String doGet(@RequestParam("number1") String num1, @RequestParam("number2") String num2,
@@ -28,7 +27,8 @@ public class CalculatorController {
 
 		int number1 = Integer.parseInt(num1);
 		int number2 = Integer.parseInt(num2);
-		double result = 0;
+		int result = 0;
+		String message= "";
 
 		switch (operation) {
 		case "plus":
@@ -41,10 +41,19 @@ public class CalculatorController {
 			result = calculatorService.multi(number1, number2);
 			break;
 		case "divide":
-			result = calculatorService.divide(number1, number2);
-			break;
+			try {
+				result = calculatorService.divide(number1, number2);
+			} catch (ArithmeticException e) {
+				message = "0では割れません";
+				break;
+			}
 		}
-		model.addAttribute("answer", result);
+		
+		if(message.isEmpty()) {
+			model.addAttribute("answer", result);
+		}else {
+			model.addAttribute("errorMessage",message);
+		}
 		return "calculator.html";
 
 	}
