@@ -3,10 +3,11 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>登録完了</title>
+	<title>動物詳細画面</title>
 </head>
 
 <body>
+	<h1>動物詳細画面</h1>
 	<ul>
 		<li th:each="animal:${animal}" style="list-style: none;">
 			<p th:text="No：+ ${animal.id}"></p>
